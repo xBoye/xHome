@@ -1,0 +1,176 @@
+【xHome项目文档】
+作者：玄客   时间：2017.1.2
+github上公开库地址：https://github.com/xBoye/xHome
+一、本地初始化项目环境建立
+1.工具软件安装
+.使用git进行版本管理
+先安装Git，下载地址：https://git-scm.com/downloads
+安装完后，Git bash执行git --version，验证安装。
+.配置用户名
+$ git config --global user.name "name"      
+.配置email
+$ git config --global user.email "11111@qq.com"  
+.git bash从GitHub clone xhome库到本地
+$ cd /d
+$ git clone https://github.com/xBoye/xHome.git
+$ cd /xhome
+lenovo@xHome MINGW64 /d/xhome
+.dir显示有.git隐藏目录的话，说明本地库已经初始化了
+如果没有初始化可以用$ git init命令进行初始化
+d:\>cd xhome
+d:\xHome>python -m venv x_env   //建立虚拟环境
+d:\xHome>x_env\scripts\activate   //激活虚拟环境
+(x_env) D:\xHome>pip install django   //安装django
+Successfully installed django-1.10.4
+
+2.建立项目-xHome
+.建立xhome项目
+(x_env) D:\xHome>django-admin.py startproject xHome .  
+(x_env) D:\xHome>dir
+ D:\xHome 的目录
+2017/01/02  21:28    <DIR>          .
+2017/01/02  21:28    <DIR>          ..
+2017/01/02  21:19    <DIR>          .git
+2017/01/02  21:04             1,060 .gitignore
+2017/01/02  21:12                22 act.bat
+2017/01/02  20:55    <DIR>          docs
+2017/01/02  20:29            35,815 LICENSE
+2017/01/02  21:28               803 manage.py
+2017/01/02  20:29                30 README.md
+2017/01/02  21:28    <DIR>          xHome
+2017/01/02  21:12    <DIR>          x_env
+            5 个文件  5 个目录   37,730 字节
+               
+3.创建应用-易经悦读(co_yi)，包括《周易》和《焦氏易林》
+(x_env) D:\xHome>python manage.py startapp co_yi
+(x_env) D:\xHome>dir co_yi
+ D:\xHome\co_yi 的目录
+2017/01/02  21:37    <DIR>          .
+2017/01/02  21:37    <DIR>          ..
+2017/01/02  21:37                63 admin.py
+2017/01/02  21:37                84 apps.py
+2017/01/02  21:37    <DIR>          migrations
+2017/01/02  21:37                57 models.py
+2017/01/02  21:37                60 tests.py
+2017/01/02  21:37                63 views.py
+2017/01/02  21:37                 0 __init__.py
+               6 个文件            327 字节
+			   
+.在setting.py添加我的应用yi。
+
+# Application definition
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+	
+	# 我的应用-周易悦读co_yi
+	'co_yi',
+]
+
+4.配置mysql数据库
+.从https://github.com/PyMySQL/PyMySQL下载pymysql，解压缩到d:\xhome\pymysql下，然后用python setup.py install安装。
+(x_env) D:\xHome\PyMySQL>python setup.py install
+Finished processing dependencies for PyMySQL==0.7.9
+
+.在项目站点的__init__.py文件中加入：
+import pymysql
+pymysql.install_as_MySQLdb()
+
+.mysql以root用户创建数据库xhome
+mysql> create database xhome;
+Query OK, 1 row affected (0.00 sec)
+
+.项目站点setting.py数据库改为mysql相关：
+# MySQL数据库
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'xhome',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+5.创建数据库模式
+.co_yi\models.py中定义模式
+from django.db import models
+class Yi(models.Model):
+	"""周易64卦模式"""
+	gname = models.CharField('卦名', max_length=8)
+	gci = models.TextField('卦辞')
+	xci = models.TextField('象辞')
+	tci = models.TextField('彖辞')
+	y1 = models.CharField('初爻', max_length=50)
+	x1 = models.CharField('初爻小象', max_length=50)
+	y2 = models.CharField('二爻', max_length=50)
+	x2 = models.CharField('二爻小象', max_length=50)
+	y3 = models.CharField('三爻', max_length=50)
+	x3 = models.CharField('三爻小象', max_length=50)
+	y4 = models.CharField('四爻', max_length=50)
+	x4 = models.CharField('四爻小象', max_length=50)
+	y5 = models.CharField('五爻', max_length=50)
+	x5 = models.CharField('五爻小象', max_length=50)
+	y6 = models.CharField('上爻', max_length=50)
+	x6 = models.CharField('上爻小象', max_length=50)
+	yy = models.CharField('用爻', max_length=50, null=True)
+	xx = models.CharField('用爻小象', max_length=50, null=True)
+	wenyan = models.TextField('文言', blank=True, null=True)
+	gbin = models.CharField('二进制卦序', max_length=6)
+
+	def __str__(self):
+		return self.gname
+		
+class Yilin(models.Model):
+	"""焦氏易林4096卦模式"""
+	yi = models.ForeignKey(Yi)	
+	jname = models.CharField('易林卦名', max_length=10)
+	jci = models.TextField('易林卦辞', blank=True, null=True)
+	
+	class Meta:
+		verbose_name_plural = 'yilins'
+	
+	def __str__(self):
+		return self.jname
+
+6.数据库移植
+.以上配置完成后，启动django进行数据库移植，如果没有出错，数据设计完成，就可以进行应用开发了。
+(x_env) D:\xHome>python manage.py makemigrations
+Migrations for 'co_yi':
+  co_yi\migrations\0001_initial.py:
+    - Create model Yi
+    - Create model Yilin
+
+(x_env) D:\xHome>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, co_yi, contenttypes, sessions
+Running migrations:... OK
+
+(x_env) D:\xHome>python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 02, 2017 - 22:48:00
+Django version 1.10.4, using settings 'xHome.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+以上项目初始化过程已经验证过。
+
+7.git项目版本管理
+
+
+
+
+
+
+
+
+
+
+
