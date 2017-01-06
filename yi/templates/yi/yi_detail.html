@@ -1,0 +1,27 @@
+{% extends "yi/base.html" %}
+
+{% block content %}
+  <h3>
+    【<a href="{% url 'yi:yi_detail' yi.id %}">{{yi.id}}.{{ yi }}</a>】-
+	<a href="{% url 'yi:edit_yi' yi.id %}">编辑</a> -
+	<a href="{% url 'yi:yi' yi.id %}">易林</a> -
+	<a href="{% url 'yi:new_yilin' yi.id %}">添加</a>
+  </h3>
+	<li>{{ yi.gci }}</li>
+	<li>{{ yi.xci }}</li>
+	<li>{{ yi.tci }}</li>
+	<li>{{ yi.y1 }}</li>
+	<li>{{ yi.x1 }}</li>
+	<li>{{ yi.y2 }}</li>
+	<li>{{ yi.x2 }}</li>
+	<li>{{ yi.y3 }}</li>
+	<li>{{ yi.x3 }}</li>
+	<li>{{ yi.y4 }}</li>
+	<li>{{ yi.x4 }}</li>
+	<li>{{ yi.y5 }}</li>
+	<li>{{ yi.x5 }}</li>
+	<li>{{ yi.y6 }}</li>
+	<li>{{ yi.x6 }}</li>
+	<li>{{ yi.yy }}</li>
+	<li>{{ yi.xx }}</li>
+{% endblock content %}

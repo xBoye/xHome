@@ -1,0 +1,10 @@
+{% extends "yi/base.html" %}
+
+{% block content %}
+  <h3>
+    【<a href="{% url 'yi:yilin_detail' yilin.id %}">{{yilin.id}}.{{ yilin }}</a>】- 
+	<a href="{% url 'yi:edit_yilin' yilin.id %}">编辑</a>
+  </h3>
+	<li>{{ yilin.jci }}</li>
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "yi/base.html" %}
+
+{% block content %}
+  <h3>周易64卦目列表</h3>
+  
+  <ul>
+    {% for yi in yis %}
+	  <li>
+	    【{{yi.id}}.{{ yi }}】 -
+	    <a href="{% url 'yi:yi_detail' yi.id %}">详细</a> -
+		<a href="{% url 'yi:yi' yi.id %}">易林</a>
+	  </li>
+	{% empty %}
+	  <li>No 易卦 have been added yet.</li>
+	{% endfor %}
+  </ul>
+  
+  <a href="{% url 'yi:new_yi' %}">添加新卦</a>
+
+{% endblock content %}

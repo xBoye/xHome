@@ -22,7 +22,7 @@ class Yi(models.Model):
 	xx = models.CharField('用爻小象', max_length=50, null=True)
 	wenyan = models.TextField('文言', blank=True, null=True)
 	gbin = models.CharField('二进制卦序', max_length=6)
-
+		
 	def __str__(self):
 		return self.gname
 		

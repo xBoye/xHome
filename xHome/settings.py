@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # 我的应用
-    'co_yi',
+	'yi',
 ]
 
 MIDDLEWARE = [

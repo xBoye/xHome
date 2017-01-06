@@ -1,8 +1,18 @@
-【xHome项目文档】
+【xHome/易经悦读项目文档】
 作者：玄客   时间：2017.1.2
 github上公开库地址：https://github.com/xBoye/xHome
+
+《Ｑ＆Ａ》
+1.views.py中视图函数错落，导致回调参数失败，检查视图函数定义。
+
 一、本地初始化项目环境建立
 1.工具软件安装
+.开发环境
+软件 python 3.4
+数据库 mysql 5.6
+连接库：PyMysql 0.7.9
+python-B/S框架：django-1.10.4
+
 .使用git进行版本管理
 先安装Git，下载地址：https://git-scm.com/downloads
 安装完后，Git bash执行git --version，验证安装。
@@ -41,9 +51,9 @@ Successfully installed django-1.10.4
 2017/01/02  21:12    <DIR>          x_env
             5 个文件  5 个目录   37,730 字节
                
-3.创建应用-易经悦读(co_yi)，包括《周易》和《焦氏易林》
-(x_env) D:\xHome>python manage.py startapp co_yi
-(x_env) D:\xHome>dir co_yi
+3.创建django应用-易经悦读(yi)，包括《周易》和《焦氏易林》
+(x_env) D:\xHome>python manage.py startapp yi
+(x_env) D:\xHome>dir yi
  D:\xHome\co_yi 的目录
 2017/01/02  21:37    <DIR>          .
 2017/01/02  21:37    <DIR>          ..
@@ -56,7 +66,7 @@ Successfully installed django-1.10.4
 2017/01/02  21:37                 0 __init__.py
                6 个文件            327 字节
 			   
-.在setting.py添加我的应用yi。
+.在项目站点配置文件settings.py中添加应用yi。
 
 # Application definition
 INSTALLED_APPS = [
@@ -67,14 +77,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	
-	# 我的应用-周易悦读co_yi
-	'co_yi',
+	# 我的应用-周易悦读yi
+	'yi',
 ]
 
 4.配置mysql数据库
 .从https://github.com/PyMySQL/PyMySQL下载pymysql，解压缩到d:\xhome\pymysql下，然后用python setup.py install安装。
 (x_env) D:\xHome\PyMySQL>python setup.py install
 Finished processing dependencies for PyMySQL==0.7.9
+.安装完后，pymysql包解压缩目录可以删除。
 
 .在项目站点的__init__.py文件中加入：
 import pymysql
@@ -98,7 +109,7 @@ DATABASES = {
 }
 
 5.创建数据库模式
-.co_yi\models.py中定义模式
+.yi\models.py中定义模式
 from django.db import models
 class Yi(models.Model):
 	"""周易64卦模式"""
@@ -138,36 +149,134 @@ class Yilin(models.Model):
 	def __str__(self):
 		return self.jname
 
-6.数据库移植
+6.数据库迁移
 .以上配置完成后，启动django进行数据库移植，如果没有出错，数据设计完成，就可以进行应用开发了。
 (x_env) D:\xHome>python manage.py makemigrations
-Migrations for 'co_yi':
+Migrations for 'yi':
   co_yi\migrations\0001_initial.py:
     - Create model Yi
     - Create model Yilin
 
 (x_env) D:\xHome>python manage.py migrate
 Operations to perform:
-  Apply all migrations: admin, auth, co_yi, contenttypes, sessions
+  Apply all migrations: admin, auth, yi, contenttypes, sessions
 Running migrations:... OK
 
+.启动django内置web服务器
 (x_env) D:\xHome>python manage.py runserver
-Performing system checks...
-
-System check identified no issues (0 silenced).
-January 02, 2017 - 22:48:00
-Django version 1.10.4, using settings 'xHome.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 
-以上项目初始化过程已经验证过。
+7.更新github项目库xHome
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+        .gitignore
+        act.bat
+        co_yi/
+        docs/
+        manage.py
+        xHome/
 
-7.git项目版本管理
+$ git add .
+$ git commit -am 'g1：本地初始化提交，建yi应用'
+[master cd0e90c] g1：本地初始化提交，建yi应用
+ 16 files changed, 574 insertions(+)
+$ git log 
+$ git push
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/xBoye/xHome.git
+   a4d855d..cd0e90c  master -> master
+以上过程已得验证。
 
+.django管理网站
+.创建超级用户
+(x_env) D:\xHome>python manage.py createsuperuser
+Username (leave blank to use 'lenovo'): xy_admin
+Email address: 122012@qq.com
+Password:
+Password (again):
+Superuser created successfully.
 
+.交互式django shell
+(x_env) D:\xhome>python manage.py shell
+>>> from yi.models import Yi
+>>> Yi.objects.all()
+<QuerySet [<Yi: 乾为天>, <Yi: 坤为地>, <Yi: 水雷屯>, <Yi: 山水蒙>, <Yi: 水天需>, <Yi: 天水讼>, <Yi: 地水师>, <Yi: 水地比>, <Yi: 风天小畜>
 
+>>> Yi.objects.get(id=1)
+<Yi: 乾为天>
 
+>>> yis=Yi.objects.all()
+>>> for yi in yis:
+...     print(yi.id, yi)
+...
+1 乾为天
+2 坤为地
+3 水雷屯
+4 山水蒙
+5 水天需
+6 天水讼
+7 地水师
+8 水地比
+9 风天小畜
 
+>>> from yi.models import Yi,Yilin
+>>> yl=Yilin.objects.get(id=1)
+
+>>> yl.yi
+<Yi: 乾为天>
+# 外键使用
+>>> y=Yi.objects.get(id=1)
+>>> y.yilin_set.all()
+<QuerySet [<Yilin: 乾之乾>, <Yilin: 乾之坤>]>
+>>>
+
+二、易经悦读应用页面开发
+.创建一个页面
+需要urls.py、views.py、表单类forms.py、模板页面yilins.html相配合。
+1.yis.html：显示所有64卦目列表。
+步骤如下：
+1)视图文件views.py中定义一个函数：
+def yis(request):
+	"""显示周易64卦列表"""
+	yis = Yi.objects.order_by('id')
+	context = {'yis' : yis}
+	return render(request, 'yi/yis.html', context)
+
+2)在模板夹templates\yi中创建相应页面：
+.yis.html
+{% extends "yi/base.html" %}
+
+{% block content %}
+  <p>周易64卦表</p>
+  
+  <ul>
+    {% for yi in yis %}
+	  <li>
+	    {{yi.id}}.{{ yi }}
+	  </li>
+	{% empty %}
+	  <li>No 易卦 have been added yet.</li>
+	{% endfor %}
+  </ul>
+  
+{% endblock content %}
+
+3)在\yi\urls.py在添加链路
+#urls.py
+from django.conf.urls import url
+from . import views
+
+urlpatterns = [
+	# 主页
+	url(r'^$', views.index, name='index'),
+	# 显示周易64列表
+	url(r'^yis/$', views.yis, name='yis'),
+	url(r'^yi/yis/$', views.yis, name='yis'),
+
+]
 
 
 

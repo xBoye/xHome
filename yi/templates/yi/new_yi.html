@@ -1,0 +1,12 @@
+{% extends "yi/base.html" %}
+
+{% block content %}
+  <p>添加新卦</p>
+  
+  <form action="{% url 'yi:new_yi' %}" method='post'>
+    {% csrf_token %}
+	{{ form.as_p }}
+	<button name="submit">添加新卦</button>
+  </form>
+  
+ {% endblock content %}

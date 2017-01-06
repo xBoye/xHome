@@ -1,0 +1,20 @@
+{% extends "yi/base.html" %}
+
+{% block content %}
+  <h3>焦氏易林列表</h3>
+  
+  <ul>
+    {% for yilin in yilins %}
+	  <li>
+	    【{{yilin.id}}.{{ yilin }}】 -
+		<a href="">详细</a> -
+		<a href="{% url 'yi:edit_yilin' yilin.id %}">编辑</a> -
+		<a href="">删除</a>
+	  </li>
+	{% empty %}
+	  <li>还未添加易林卦s..</li>
+	{% endfor %}
+  </ul>
+
+  
+{% endblock content %}

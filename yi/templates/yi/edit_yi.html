@@ -1,0 +1,15 @@
+{% extends "yi/base.html" %}
+
+{% block content %}
+
+  <h3>
+    【{{yi.id}}.{{ yi }}】- 编辑
+  </h3>
+  
+  <form action="{% url 'yi:edit_yi' yi.id %}" method='post'>
+    {% csrf_token %}
+	{{ form.as_p }}
+	<button name="submit">保存修改</button>
+  </form>
+  
+ {% endblock content %}
