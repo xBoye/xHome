@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     # 我的应用
 	'yi',
+	'users',
 ]
 
 MIDDLEWARE = [
@@ -97,7 +98,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
-
+"""
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+"""
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -132,3 +133,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 我的设置
+LOGIN_URL = '/users/login/'
+
+
+

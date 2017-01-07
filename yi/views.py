@@ -11,6 +11,7 @@ def index(request):
 	"""周易悦读主页"""
 	return render(request, 'yi/index.html')
 
+#@login_required
 def yis(request):
 	"""显示周易列表"""
 	yis = Yi.objects.order_by('id')
@@ -38,7 +39,8 @@ def yilin_detail(request, yilin_id):
 
 	context = {'yilin' : yilin}
 	return render(request, 'yi/yilin_detail.html', context)
-
+	
+#@login_required
 def new_yi(request):
 	"""添加新卦"""
 	if request.method != 'POST':
@@ -76,7 +78,7 @@ def new_yilin(request, yi_id):
 		if form.is_valid():
 			new_yilin = form.save(commit=False)
 			new_yilin.yi = yi
-			new_entry.save()
+			new_yilin.save()
 			return HttpResponseRedirect(reverse('yi:yi',args=[yi_id]))
 			
 	context = {'yi': yi, 'form': form}

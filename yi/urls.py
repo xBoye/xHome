@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
 	# 主页
-	#url(r'^$', views.index, name='index'),
-	url(r'^$', views.yis, name='yis'),
+	url(r'^$', views.index, name='index'),
+	#url(r'^$', views.yis, name='yis'),
 	
 	# 显示周易列表
 	url(r'^yis/$', views.yis, name='yis'),

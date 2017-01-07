@@ -2,8 +2,26 @@
 作者：玄客   时间：2017.1.2
 github上公开库地址：https://github.com/xBoye/xHome
 
-《Ｑ＆Ａ》
-1.views.py中视图函数错落，导致回调参数失败，检查视图函数定义。
+孔子曰：入其国，其教可知也。其为人也：洁静精微，《易》教也；故《易》之失，贼。其为人也：洁静精微而不贼，则深于《易》者也。
+
+【Ｑ＆Ａ】
+1.回调失败原因
+.空格与<Tab>键不一致
+.views.py中视图函数未定义
+.参数未准备或参数不一致
+.上下文未准备或不一致
+
+2.几种跳转方式
+.无上下文跳转页面
+return render(request, 'learning_logs/index.html')
+.上下文渲染跳转页面
+context = {'topic': topic, 'form': form}
+return render(request,'learning_logs/new_entry.html', context)
+.无参数跳转
+return HttpResponseRedirect(reverse('learning_logs:topics'))
+.带参数跳转
+
+return HttpResponseRedirect(reverse('learning_logs:topic',args=[topic_id]))
 
 一、本地初始化项目环境建立
 1.工具软件安装
@@ -275,9 +293,14 @@ urlpatterns = [
 	# 显示周易64列表
 	url(r'^yis/$', views.yis, name='yis'),
 	url(r'^yi/yis/$', views.yis, name='yis'),
-
 ]
 
+三、创建用户登录应用users
+1.创建用户应用users
+(x_env) D:\xHome>python manage.py startapp users
+.在项目站点settings.py中添加登录设置：
+# 我的设置
+LOGIN_URL = '/users/login/'
 
 
 
