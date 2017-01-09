@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     # 我的应用
 	'yi',
 	'users',
+	'ksitigarbha',	
+	'shi',
 ]
 
 MIDDLEWARE = [

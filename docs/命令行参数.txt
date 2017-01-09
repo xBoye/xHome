@@ -1,0 +1,7 @@
+stdin,stdout,sys.argv
+
+import sys
+.sys.stdin,sys.stdout可以用管道方式传递数据。
+.sys.argv是命令行参数的列表
+.sys.argv[0]是程序自己的名字
+.sys.argv[1]是命令行第1个参数

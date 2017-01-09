@@ -7,6 +7,9 @@ urlpatterns = [
 	url(r'^$', views.index, name='index'),
 	#url(r'^$', views.yis, name='yis'),
 	
+	# 试一试
+	url(r'^try$', views.just_a_try, name='just_a_try'),
+	
 	# 显示周易列表
 	url(r'^yis/$', views.yis, name='yis'),
 	

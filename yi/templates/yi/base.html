@@ -1,17 +1,19 @@
-<h2>易经悦读</h2>
-孔子曰：入其国，其教可知也。其为人也：洁静精微，《易》教也；故《易》之失，贼。其为人也：洁静精微而不贼，则深于《易》者也。--《礼记·经解》
+<h2>书虫悦读会</h2>
+子曰：学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？
 <p>
-  <a href="{% url 'yi:yis' %}">周易</a> -
-  <a href="{% url 'yi:yilins' %}">易林</a> -
+  <a href="{% url 'yi:index' %}">主页君</a> -
+  <a href="{% url 'yi:yis' %}">易经悦读</a> -
+  <a href="{% url 'shi:shi' %}">诗词馆</a> -
+  <a href="{% url 'ksitigarbha:ksitigarbha' %}">地藏占察</a> -
+  <a href="{% url 'yi:just_a_try' %}">试一试</a> -
   {% if user.is_authenticated %}
-    Hello, {{ user.username }}.
-	<a href="{% url 'users:logout' %}">Logout</a>
+    亲，来了，奉茶，{{ user.username }} ^-^
+	<a href="{% url 'users:logout' %}">登出</a>
   {% else %}
-    <a href="{% url 'users:register' %}">Register</a> -
-    <a href="{% url 'users:login' %}">Login</a>
+    <a href="{% url 'users:register' %}">注册</a> -
+    <a href="{% url 'users:login' %}">登录</a>
   {% endif %}
 </p>
 
 {% block content %}{% endblock content %}
-
 

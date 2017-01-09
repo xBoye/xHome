@@ -10,8 +10,8 @@
     {% csrf_token %}
 	{{ form.as_p }}
 	
-	<button name="submit">login in</button>
-	<input type="hidden" name="next" value="{% url 'yi:yis' %}" />
+	<button name="submit">登录</button>
+	<input type="hidden" name="next" value="{% url 'yi:index' %}" />
   </form>
   
  {% endblock content %}

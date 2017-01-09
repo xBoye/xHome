@@ -1,0 +1,15 @@
+<h2>易经悦读</h2>
+孔子曰：入其国，其教可知也。其为人也：洁静精微，《易》教也；故《易》之失，贼。其为人也：洁静精微而不贼，则深于《易》者也。--《礼记·经解》
+<p>
+  <a href="{% url 'yi:yis' %}">周易</a> -
+  <a href="{% url 'yi:yilins' %}">易林</a> -
+  {% if user.is_authenticated %}
+    Hello, {{ user.username }}.
+	<a href="{% url 'users:logout' %}">Logout</a>
+  {% else %}
+    <a href="{% url 'users:register' %}">Register</a> -
+    <a href="{% url 'users:login' %}">Login</a>
+  {% endif %}
+</p>
+
+{% block content %}{% endblock content %}

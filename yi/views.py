@@ -11,6 +11,10 @@ def index(request):
 	"""周易悦读主页"""
 	return render(request, 'yi/index.html')
 
+def just_a_try(request):
+	"""试一试"""
+	return render(request, 'yi/just_a_try.html')	
+	
 #@login_required
 def yis(request):
 	"""显示周易列表"""
