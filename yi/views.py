@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 from .models import Yi, Yilin
 from .forms import YiForm, YilinForm
@@ -11,9 +12,11 @@ def index(request):
 	"""周易悦读主页"""
 	return render(request, 'yi/index.html')
 
+
 def just_a_try(request):
 	"""试一试"""
 	return render(request, 'yi/just_a_try.html')	
+
 	
 #@login_required
 def yis(request):
@@ -44,7 +47,7 @@ def yilin_detail(request, yilin_id):
 	context = {'yilin' : yilin}
 	return render(request, 'yi/yilin_detail.html', context)
 	
-#@login_required
+@login_required
 def new_yi(request):
 	"""添加新卦"""
 	if request.method != 'POST':
@@ -68,7 +71,8 @@ def yilins(request):
 	yilins = Yilin.objects.order_by('id')
 	context = {'yilins' : yilins}
 	return render(request, 'yi/yilins.html', context)
-	
+
+@login_required
 def new_yilin(request, yi_id):
 	"""某卦添加易林之卦"""
 	yi = Yi.objects.get(id=yi_id)
@@ -88,6 +92,7 @@ def new_yilin(request, yi_id):
 	context = {'yi': yi, 'form': form}
 	return render(request,'yi/new_yilin.html', context)
 	
+@login_required
 def edit_yi(request, yi_id):
 	"""编辑易经卦目"""
 	yi = Yi.objects.get(id=yi_id)
@@ -105,7 +110,7 @@ def edit_yi(request, yi_id):
 	context = {'yi': yi, 'form': form}
 	return render(request,'yi/edit_yi.html', context)
 
-
+@login_required
 def edit_yilin(request, yilin_id):
 	"""编辑易林卦目"""
 	yilin = Yilin.objects.get(id=yilin_id)

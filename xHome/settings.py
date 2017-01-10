@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     # 我的应用
 	'yi',
 	'users',
-	'ksitigarbha',	
+	'ksitiscry',	
 	'shi',
-	'justatry',
+	'try',
 ]
 
 MIDDLEWARE = [
@@ -137,7 +137,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# 我的设置
+# 登录重定位设置
 LOGIN_URL = '/users/login/'
 
 

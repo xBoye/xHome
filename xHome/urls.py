@@ -14,10 +14,10 @@ urlpatterns = [
 	# 应用诗词馆shi
 	url(r'^shi/',include('shi.urls', namespace='shi')),
 	
-	# 应用地藏占察Ksitigarbha
-	url(r'^ksitigarbha/',include('ksitigarbha.urls', namespace='ksitigarbha')),
+	# 应用地藏占察ksitiscry
+	url(r'^ksitiscry/',include('ksitiscry.urls', namespace='ksitiscry')),
 	
-	# 试一试justatry
-	url(r'^justatry/',include('justatry.urls', namespace='justatry')),
+	# 试一试try
+	url(r'^try/',include('try.urls', namespace='try')),
 
 ]

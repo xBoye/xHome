@@ -3,10 +3,9 @@ from django.shortcuts import render
 
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
-from yi.models import Yi, Yilin
-from yi.forms import YiForm, YilinForm
-
-def justatry(request):
+@login_required
+def just_a_try(request):
 	"""试一试"""
-	return render(request, 'justatry/justatry.html')	
+	return render(request, 'try/try.html')	

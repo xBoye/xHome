@@ -3,8 +3,8 @@
   <a href="{% url 'yi:index' %}">主页君</a> -
   <a href="{% url 'yi:yis' %}">易经悦读</a> -
   <a href="{% url 'shi:shi' %}">诗词馆</a> -
-  <a href="{% url 'ksitigarbha:ksitigarbha' %}">地藏占察</a> -
-  <a href="{% url 'justatry:justatry' %}">试一试</a> -
+  <a href="{% url 'ksitiscry:ksitiscry' %}">地藏占察</a> -
+  <a href="{% url 'try:try' %}">试一试</a> -
   {% if user.is_authenticated %}
     亲来了，奉茶，{{ user.username }}.. ^-^
 	<a href="{% url 'users:logout' %}">登出</a>

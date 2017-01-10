@@ -5,13 +5,12 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from .models import Ksitiscry
-#from .forms import YiForm, YilinForm
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
+@login_required
 def ksitiscry(request):
 	"""地藏占察"""
 	entries = Ksitiscry.objects.all().order_by('id')
 	context = {'entries' : entries}
-	return render(request, 'ksitigarbha/ksitiscry.html', context)
+	return render(request, 'ksitiscry/ksitiscry.html', context)
 
