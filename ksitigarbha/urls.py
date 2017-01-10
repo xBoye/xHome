@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
 	# 地藏占察
-	url(r'^ksitigarbha$', views.ksitigarbha, name='ksitigarbha'),
+	url(r'^ksitiscry$', views.ksitiscry, name='ksitigarbha'),
 	
 ]

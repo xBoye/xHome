@@ -16,5 +16,8 @@ urlpatterns = [
 	
 	# 应用地藏占察Ksitigarbha
 	url(r'^ksitigarbha/',include('ksitigarbha.urls', namespace='ksitigarbha')),
+	
+	# 试一试justatry
+	url(r'^justatry/',include('justatry.urls', namespace='justatry')),
 
 ]

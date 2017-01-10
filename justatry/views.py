@@ -5,10 +5,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from yi.models import Yi, Yilin
-#from .forms import YiForm, YilinForm
+from yi.forms import YiForm, YilinForm
 
-# Create your views here.
-
-def shi(request):
-	"""诗词馆shi"""
-	return render(request, 'shi/shi.html')	
+def justatry(request):
+	"""试一试"""
+	return render(request, 'justatry/justatry.html')	

@@ -1,0 +1,18 @@
+{% extends "ksitigarbha/ksiti_base.html" %}
+
+{% block content %}
+  <h3>
+    占察善恶业报经中所列189种三世善恶业报列表 - 
+	<a href="{% url 'justatry:justatry' %}">试一试</a>
+  </h3>
+  
+  <ul>
+    {% for entry in entries %}
+	  <li>
+	    【{{entry.id}}.{{entry}}】
+	  </li>
+	{% empty %}
+	  <li>Nothing added..</li>
+	{% endfor %}
+  </ul>
+{% endblock content %}

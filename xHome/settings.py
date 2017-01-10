@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 	'users',
 	'ksitigarbha',	
 	'shi',
+	'justatry',
 ]
 
 MIDDLEWARE = [
