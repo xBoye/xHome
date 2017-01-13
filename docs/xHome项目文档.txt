@@ -1,10 +1,10 @@
 【xHome/易经悦读项目文档】
-作者：玄客   时间：2017.1.2
+作者：玄客  时间：2017.1.2
 github上公开库地址：https://github.com/xBoye/xHome
 子曰：学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？
 子曰：入其国，其教可知也。其为人也：洁静精微，《易》教也；故《易》之失，贼。其为人也：洁静精微而不贼，则深于《易》者也。
 
-新应用：试一试(just_a_try)、地藏占察(Ksitigarbha)
+新应用：试一试(try)、地藏占察(ksitiscry)、诗词馆(shi)
 urls
 views
 templates
@@ -25,7 +25,6 @@ return render(request,'learning_logs/new_entry.html', context)
 .无参数跳转
 return HttpResponseRedirect(reverse('learning_logs:topics'))
 .带参数跳转
-
 return HttpResponseRedirect(reverse('learning_logs:topic',args=[topic_id]))
 
 一、本地初始化项目环境建立
@@ -353,9 +352,14 @@ urlpatterns = [
 1.创建用户应用users
 (x_env) D:\xHome>python manage.py startapp users
 .在项目站点settings.py中添加登录设置：
-# 我的设置
+# 页面限制
+.需登录才能访问页面，步骤如下：
+.在项目站点settings.py中最后增加登录跳转页面位置：
 LOGIN_URL = '/users/login/'
-
+.在views.py中导入login_required
+from django.contrib.auth.decorators import login_required
+.在需要限制访问的页面视图函数头部标注：
+@login_required
 
 
 
