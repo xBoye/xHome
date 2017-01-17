@@ -1,10 +1,15 @@
-【xHome/易经悦读项目文档】
-作者：玄客  时间：2017.1.2
+【xHome/Python练习项目管理中心】文案   更新中。。
+作者：玄客  创建时间：2017.1.2
 github上公开库地址：https://github.com/xBoye/xHome
 子曰：学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？
 子曰：入其国，其教可知也。其为人也：洁静精微，《易》教也；故《易》之失，贼。其为人也：洁静精微而不贼，则深于《易》者也。
-
-新应用：试一试(try)、地藏占察(ksitiscry)、诗词馆(shi)
+应用：
+发布中心(centres)
+晓窗读易(yi)
+试一试(try)
+地藏占察(ksitiscry)
+诗词馆(shi)
+文本分析(text_analysis)
 urls
 views
 templates
@@ -18,12 +23,12 @@ templates
 
 2.几种跳转方式
 .无上下文跳转页面
-return render(request, 'learning_logs/index.html')
+return render(request, 'learning_logs/index.html')    #重定向到页面请求
 .上下文渲染跳转页面
 context = {'topic': topic, 'form': form}
 return render(request,'learning_logs/new_entry.html', context)
 .无参数跳转
-return HttpResponseRedirect(reverse('learning_logs:topics'))
+return HttpResponseRedirect(reverse('learning_logs:topics'))    #重定向到视图函数
 .带参数跳转
 return HttpResponseRedirect(reverse('learning_logs:topic',args=[topic_id]))
 
@@ -361,6 +366,38 @@ from django.contrib.auth.decorators import login_required
 .在需要限制访问的页面视图函数头部标注：
 @login_required
 
+2.文本分析-论语
+.分析项目：分析论语中单字出现的字频，试图发现重点
+.创建汉字库words和分析结果results两表
+class Words(models.Model):
+	"""文本汉字库"""
+	name = models.CharField(max_length=2)
+	degrees = models.IntegerField()
+	
+	def __str__(self):
+		"""返回汉字名"""
+		return self.name
+		
+class Results(models.Model):
+	"""分析结果"""
+	item = models.CharField(max_length=50)
+	solution = models.TextField()
+	
+	def __str__(self):
+		"""返回项目名"""
+		return self.item
+		
+.数据库迁移
+(x_env) D:\xHome>python manage.py makemigrations text_mining
+Migrations for 'text_mining':
+  text_mining\migrations\0001_initial.py:
+    - Create model Results
+    - Create model Words
 
+(x_env) D:\xHome>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, ksitiscry, sessions, text_mining, yi
+Running migrations:
+  Applying text_mining.0001_initial... OK
 
 

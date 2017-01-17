@@ -1,4 +1,5 @@
-{% extends "yi/base.html" %}
+<h2>用户注册</h2>
+{% extends "centres/link_base.html" %}
 
 {% block content %}
 
@@ -7,7 +8,7 @@
 	{{ form.as_p }}
 	
 	<button name="submit">register</button>
-	<input type="hidden" name="next" value="{% url 'yi:index' %}" />
+	<input type="hidden" name="next" value="{% url 'centres:centres' %}" />
   </form>
   
  {% endblock content %}

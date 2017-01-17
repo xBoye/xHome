@@ -39,11 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # 我的应用
-	'yi',
-	'users',
-	'ksitiscry',	
-	'shi',
-	'try',
+		'centres',
+		'yi',
+		'text_mining',
+		'data_analysis',
+		'users',
+		'ksitiscry',	
+		'shi',
+		'try',
 ]
 
 MIDDLEWARE = [

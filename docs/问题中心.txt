@@ -1,0 +1,15 @@
+问题中心
+1.字库chars，词库words，处理结果results，化名alias系统
+2.密码学
+words(id,name,pinyin)
+terms(id,name,source,category)
+results(id,item,solution)
+
+volume卷
+
+.人物在文中出现次数
+.先求出在一行中词组出现频度
+
+.SyntaxError: (unicode error) 'utf-8' codec can't decode byte
+解决：
+原因是文件用ANSI格式保存，改成utf-8重新保存下就好了。
