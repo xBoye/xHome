@@ -1,0 +1,19 @@
+<h2>文本挖掘</h2>
+{% extends "centres/link_base.html" %}
+
+{% block content %}
+  <h3>《{{results.item}}》字频统计：</h3>
+  <p>{{results.summary}}</p>
+
+  <ul>
+    <li>字..字频(最频前20)</li>
+    {% for word in data %}
+	  <li>
+	    {{word.name}}..{{word.degrees}}
+	  </li>
+	{% empty %}
+	  <li>Nothing..</li>
+	{% endfor %}
+  </ul>
+
+{% endblock content %}

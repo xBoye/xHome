@@ -5,7 +5,8 @@
   <a href="{% url 'data_analysis:data_analysis' %}">数据分析</a> -
   <a href="{% url 'shi:shi' %}">诗词馆</a> -
   <a href="{% url 'ksitiscry:ksitiscry' %}">地藏占察</a> -
-  <a href="">词库</a> -
+  <a href="{% url 'utest:utest' %}">单元测试</a> -  
+  <a href="{% url 'text_mining:wordslab' %}">词库</a> -
   <a href="{% url 'try:try' %}">试一试</a> -
   {% if user.is_authenticated %}
     您本次登录的化名为：{{ user.username }}^-^

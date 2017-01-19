@@ -12,6 +12,9 @@ urlpatterns = [
 	# 用户登录users
 	url(r'^users/', include('users.urls', namespace='users')),
 	
+	# 单元测试
+	url(r'^utest/', include('utest.urls', namespace='utest')),
+	
 	# 应用yi
 	url(r'^yi/', include('yi.urls', namespace='yi')),
 	

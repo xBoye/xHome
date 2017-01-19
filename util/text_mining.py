@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import os, re
 
-fin = "d:\\xhome\\data\\text_mining\\红楼梦.txt"
-fout = "d:\\xhome\\data\\out_file\\红楼梦_results.csv"
+fin = "d:\\xhome\\data\\text_mining\\禅诗.txt"
+fout = "d:\\xhome\\data\\out_file\\禅诗_results.csv"
 book=os.path.split(fin)[1].split('.')[0]   #书名
 
 repl = '[，：。？∶:;！（）、=《》’‘“\'"\r\n\s )ばhＮB0℃zＧｎｂｄｃ□ｊｔYoｙt／_Ａp@ -Luｌ；bｕ·yie．dｅ３a「２nF,＠Ｖｋ＜＞ｒｐｉ『』ｇｏjａ/2┦ｘ\sZ(＝（）ｖΥw”TW○乙－Ｔ￣１Ｑ８Ｓ０s,r＂Ｆ─]'

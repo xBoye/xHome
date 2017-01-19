@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 		'ksitiscry',	
 		'shi',
 		'try',
+		
+		'utest',
 ]
 
 MIDDLEWARE = [

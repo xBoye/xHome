@@ -1,0 +1,9 @@
+<h2>单元测试</h2>
+{% extends "centres/link_base.html" %}
+
+{% block content %}
+{% for ex in examples %}
+	<h3>{{ex.id}}.{{ex.item}}</h3>
+	<p>{{ex.solution}}</p>
+{% endfor %}
+{% endblock content %}
