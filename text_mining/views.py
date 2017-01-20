@@ -41,11 +41,11 @@ def wordcounts(request):
 		d=sorted(d.items(),key=lambda a:a[1],reverse=True)
 		id = 1
 		for l in d:
-			Words(name=l[0], degrees=l[1], fromtext=book).save()
+			Words(name=l[0], degrees=l[1], isfrom=book).save()
 	
 	results =Results.objects.filter(item=book).values('item','summary').distinct()[0]
 	
-	data = Words.objects.filter(fromtext=book)[0:20]
+	data = Words.objects.filter(isfrom=book)[0:20]
 	context = {'results':results, 'data':data}
 
 	return render_to_response('text_mining/results.html', context)

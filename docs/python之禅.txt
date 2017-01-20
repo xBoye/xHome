@@ -1,0 +1,66 @@
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+>>>
+
+>>> import this
+The Zen of Python, by Tim Peters
+华名：Python 之禅
+
+Beautiful is better than ugly.
+美胜于丑
+Explicit is better than implicit.
+显胜于隐
+Simple is better than complex.
+简胜于繁
+Complex is better than complicated.
+繁胜于杂
+Flat is better than nested.
+平胜于迭
+Sparse is better than dense.
+疏胜于密
+Readability counts.
+读胜于写
+Special cases aren't special enough to break the rules.
+规则胜于特例
+Although practicality beats purity.
+实用胜于单纯
+Errors should never pass silently.
+告错胜于沉默
+Unless explicitly silenced.
+沉默胜于吵闹
+In the face of ambiguity, refuse the temptation to guess.
+拒绝胜于猜测
+There should be one-- and preferably only one --obvious way to do it.
+唯一胜于显然
+Although that way may not be obvious at first unless you're Dutch.
+显然不是荷兰
+Now is better than never.
+现在胜于永不
+Although never is often better than *right* now.
+永不胜于匆猝
+If the implementation is hard to explain, it's a bad idea.
+凡值得说,必易于说
+If the implementation is easy to explain, it may be a good idea.
+反之则不然
+Namespaces are one honking great idea -- let's do more of those!  
+名可名, 请常名

@@ -9,4 +9,8 @@ urlpatterns = [
 	# 分发中心
 	url(r'^centres/$', views.centres, name='centres'),
 	
+	# 文件上传
+	url(r'^upload/$', views.upload, name='upload'),
+	url(r'^uploadfile/$', views.uploadfile, name='uploadfile'),
+	
 ]

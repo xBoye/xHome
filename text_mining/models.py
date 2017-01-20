@@ -5,7 +5,7 @@ class Words(models.Model):
 	"""文本汉字库"""
 	name = models.CharField(max_length=2)
 	degrees = models.IntegerField()
-	fromtext = models.CharField(max_length=20)
+	isfrom = models.CharField(max_length=20)
 	
 	def __str__(self):
 		"""返回汉字名"""
