@@ -12,6 +12,9 @@ urlpatterns = [
 	# 用户登录users
 	url(r'^users/', include('users.urls', namespace='users')),
 	
+	# 区块链blockchain
+	url(r'^blockchain/', include('blockchain.urls', namespace='blockchain')),
+	
 	# 单元测试
 	url(r'^utest/', include('utest.urls', namespace='utest')),
 	

@@ -1,4 +1,7 @@
 问题中心
+.小心：表单提交里面的action="find/"，与urls.py里的url定义必须匹配，特别注意/的使用。。
+url(r'^find/$', views.find, name='find'),
+
 1.字库chars，词库words，处理结果results，化名alias系统
 2.密码学
 words(id,name,pinyin)
