@@ -15,11 +15,20 @@ urlpatterns = [
 	# 区块链blockchain
 	url(r'^blockchain/', include('blockchain.urls', namespace='blockchain')),
 	
+	# 密码学
+	url(r'^cipher/', include('cipher.urls', namespace='cipher')),
+	
 	# 单元测试
 	url(r'^utest/', include('utest.urls', namespace='utest')),
 	
 	# 应用yi
 	url(r'^yi/', include('yi.urls', namespace='yi')),
+	
+	# 算法algorithm
+	url(r'^algorithm/', include('algorithm.urls', namespace='algorithm')),
+	
+	# 离散数学lisan
+	url(r'^lisan/', include('lisan.urls', namespace='lisan')),
 	
 	# 文本挖掘text_mining
 	url(r'^text_mining/', include('text_mining.urls', namespace='text_mining')),

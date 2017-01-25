@@ -10,6 +10,9 @@ urlpatterns = [
 	url(r'^wordslab$', views.wordslab, name='wordslab'),
 	
 	# 单字计数
-	url(r'^wordcounts', views.wordcounts, name='wordcounts')
+	url(r'^wordcounts', views.wordcounts, name='wordcounts'),
+	
+	# test_wordcounts
+	url(r'^test_wordcounts', views.test_wordcounts, name='test_wordcounts'),
 	
 ]

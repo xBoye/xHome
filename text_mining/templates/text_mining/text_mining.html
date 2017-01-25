@@ -2,7 +2,11 @@
 {% extends "centres/link_base.html" %}
 
 {% block content %}
-<p>
-  <a href="{% url 'text_mining:wordcounts' %}">鹿鼎记</a>
-</p>
+<p>文本上传，要求utf-8编码的txt文件。^-^</p>
+<form enctype="multipart/form-data" action="test_wordcounts" method="post">{% csrf_token %}
+   <input type="file" name="upfile" />  
+   <br/>  
+   <input type="submit" value="字频统计" />  
+</form>  
+{{what}}
 {% endblock content %}

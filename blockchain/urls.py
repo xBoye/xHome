@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
 	# 区块链blockchain
-	url(r'^blockchain\$', views.blockchain, name='blockchain'),
+	url(r'^blockchain', views.blockchain, name='blockchain'),
+	
 	
 ]

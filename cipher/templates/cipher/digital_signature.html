@@ -1,0 +1,16 @@
+<h2>数字签名(RSA)</h2>
+{% extends "cipher/cipher_base.html" %}
+
+{% block content %}
+请输入消息：
+<form enctype='multipart/form-data' action='digital_signature}}' method='POST'>
+  {% csrf_token %}
+  <input type='text' name='msg' />
+  <br/>
+  <input type='submit' value='数字签名' />
+</form>
+<p>{{message}}</p>
+<p>{{message_digest}}</p>
+<p>{{digital_signature}}</p>
+<p>{{verify_signature}}</p>
+{% endblock content %}
