@@ -1,0 +1,14 @@
+<h2>任意查询</h2>
+{% extends "text_mining/text_mining_base.html" %}
+
+{% block content %}
+<p>任意查询^-^</p>
+<form enctype="multipart/form-data" action="any_search_fuwu" method="post">
+   {% csrf_token %}
+   <input type="file" name="myfile" /><br/>
+   查询内容 <input type='text' name='filename' />
+   <br/>   
+   <input type="submit" value="任意查询" />  
+</form>
+{{what}}
+{% endblock content %}

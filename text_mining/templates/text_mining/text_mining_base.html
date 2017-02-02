@@ -1,0 +1,18 @@
+<p>
+  <a href="{% url 'centres:centres' %}">主页君</a> -
+<!--  <a href="{% url 'centres:upload' %}">文件上传</a> - -->   
+  <a href="{% url 'text_mining:word_degrees' %}">字频统计</a> -
+  <a href="{% url 'text_mining:name_degrees' %}">人物统计</a> -
+  <a href="{% url 'text_mining:any_search' %}">任意查询</a> -
+  <a href="{% url 'text_mining:wordslab' %}">字词组库</a> -
+  <a href="{% url 'try:try' %}">试一试</a> -
+  {% if user.is_authenticated %}
+    您本次登录的化名为：{{ user.username }}^-^
+	<a href="{% url 'users:logout' %}">登出</a>
+  {% else %}
+    <a href="{% url 'users:register' %}">注册</a> -
+    <a href="{% url 'users:login' %}">登录</a>
+  {% endif %}
+</p>
+
+{% block content %}{% endblock content %}

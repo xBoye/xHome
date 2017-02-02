@@ -1,12 +1,12 @@
 <h2>文本挖掘</h2>
-{% extends "centres/link_base.html" %}
+{% extends "text_mining/text_mining_base.html" %}
 
 {% block content %}
-<p>文本上传，要求utf-8编码的txt文件。^-^</p>
-<form enctype="multipart/form-data" action="test_wordcounts" method="post">{% csrf_token %}
-   <input type="file" name="upfile" />  
+<p>文本上传^-^</p>
+<form enctype="multipart/form-data" action="uploadfile" method="post">{% csrf_token %}
+   <input type="file" name="myfile" />  
    <br/>  
-   <input type="submit" value="字频统计" />  
+   <input type="submit" value="文本上传"/>  
 </form>  
 {{what}}
 {% endblock content %}

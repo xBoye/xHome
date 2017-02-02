@@ -8,3 +8,15 @@ class Ksitiscry(models.Model):
 	def __str__(self):
 		"""返回模型的字符串表示"""
 		return self.kci
+		
+class Avalokiscry(models.Model):
+	"""观音签100条"""
+	signtype = models.CharField('上中下签',max_length=4)
+	signmetaphor = models.CharField('签喻',max_length=12)
+	signpoem = models.CharField('签诗',max_length=64)
+	signotes = models.TextField('签释')
+	
+	
+	def __str__(self):
+		"""返回模型的字符串表示"""
+		return self.signmetaphor

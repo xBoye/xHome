@@ -17,6 +17,8 @@ def register(request):
 	if request.method != 'POST':
 		"""显示空的注册表单"""
 		form = UserCreationForm()
+		context = {'form': form}
+		return render(request, 'users/register.html', context)
 	else:
 		# 处理填写好的表单"""
 		form = UserCreationForm(data=request.POST)
@@ -27,5 +29,3 @@ def register(request):
 			authenticated_user = authenticate(username=new_user.username, password=request.POST['password1'])
 			login(request, authenticated_user)
 			return HttpResponseRedirect(reverse('centres:centres'))
-	context = {'form': form}
-	return render(request, 'users/register.html', context)

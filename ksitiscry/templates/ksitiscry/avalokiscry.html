@@ -1,0 +1,11 @@
+<h2>观音签</h2>
+{% extends "ksitiscry/scry_base.html" %}
+{% block content %}
+<p>观音签^-^</p>
+<form enctype="multipart/form-data" action="find" method="post">
+   {% csrf_token %}
+   <input type="text" name="atry" />  
+   <input type="submit" value="试一试" />  
+</form>  
+<p>{{avk_entry}}</p>
+{% endblock content %}
