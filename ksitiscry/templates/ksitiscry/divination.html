@@ -1,0 +1,17 @@
+<h2>占卜学</h2>
+<p>
+寂然不动，感而遂通。
+</P>
+{% extends "ksitiscry/scry_base.html" %}
+
+{% block content %}
+<form enctype="multipart/form-data" action="divining" method="post">
+   {% csrf_token %}
+   <input type="text" name="thing" />  
+   <input type="submit" value="试一试" />  
+</form>  
+<p>{{yi_entry}}</p>
+<p>{{yl_entry}}</p>
+<p>{{ks_entry}}</p>
+<p>{{av_entry}}</p>
+{% endblock content %}

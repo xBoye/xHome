@@ -3,10 +3,9 @@
 
 {% block content %}
 请输入消息：
-<form enctype='multipart/form-data' action='message_digest}}' method='POST'>
+<form enctype='multipart/form-data' action='message_digest' method='POST'>
   {% csrf_token %}
   <input type='text' name='msg' />
-  <br/>
   <input type='submit' value='消息摘要' />
 </form>
 <p>{{message}}</p>

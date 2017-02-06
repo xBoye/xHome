@@ -1,0 +1,19 @@
+<h2>寻找黑洞数</h2>
+{% extends "algorithm/base.html" %}
+
+{% block content %}
+<p>所谓黑洞数black-hole-numbers是指这样的整数：由这个数字每位上的数字组成的最大数减去每位数字组成的最小数仍然得到这个数本身身。
+</p>
+<p>例如3位黑洞数是495，因为495的三个数字4,9,5组成的最大数954和最小数459的差等于495(954-459=495)，同理：4位数字是6174，因为7641-1467=6174。
+</p>
+<p>【注】算法核心代码来源于微信公众号[pythn小屋]，尊重原创。</li>
+<br />
+<form enctype="multipart/form-data" action="findblackholenumbers" method="post">
+   {% csrf_token %}
+   输入黑洞数位数<br/>
+   <input type="text" name="figures" />  
+   <input type="submit" value="寻找黑洞数" />  
+</form>  
+{{title}}
+{{black_hole_numbers}}
+{% endblock content %}

@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
 	# 文本挖掘
 	url(r'^text_mining$', views.text_mining, name='text_mining'),
-		url(r'^uploadfile', views.uploadfile, name='uploadfile'),
+	url(r'^uploadfile', views.uploadfile, name='uploadfile'),
 	
 	# 字频统计
 	url(r'^word_degrees', views.word_degrees, name='word_degrees'),
@@ -24,7 +24,5 @@ urlpatterns = [
 	
 	# 任意查询
 	url(r'^any_search', views.any_search, name='any_search'),
-	#url(r'^any_search_fuwu/$', views.any_search_fuwu, name='any_search_fuwu'),
-	
-	
+	url(r'^any_search_service', views.any_search_service, name='any_search_service')
 ]

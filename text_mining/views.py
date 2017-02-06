@@ -24,14 +24,14 @@ def wordslab(request):
 def name_degrees(request):
 	"""人物统计"""
 	return render(request, 'text_mining/name_degrees.html')
-		
+	
 def any_search(request):
 	"""任意查询"""
 	return render(request, 'text_mining/any_search.html')
 	
-def any_search_fuwu(request):
-	return render(request, 'text_mining/text_mining.html')
-
+def any_search_service(request):
+	return render(request, 'text_mining/any_search.html', {'what':'wwwww'})
+	
 def uploadfile(request):  
 	import os
 	if request.method == "POST":    # 请求方法为POST时，进行处理  

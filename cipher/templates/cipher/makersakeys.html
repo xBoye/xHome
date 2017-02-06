@@ -1,0 +1,22 @@
+<h2>密钥生成RSA</h2>
+{% extends "cipher/cipher_base.html" %}
+
+{% block content %}
+
+<form enctype='multipart/form-data' action='makersakeys' method='POST'>
+  {% csrf_token %}
+  请输入密钥位数 <input type='text' name='keysize' />(1024) <br />
+<!--  请输入密钥文件前缀 <input type='text' name='name' /> <br />
+-->
+  <input type='submit' value='密钥生成' />
+</form>
+RSA密钥生成步骤：<br />
+1.随机生成两个大质数p、q，n=p*q。<br />
+2.生成随机数e，使其与(p-1)*(q-1)互质。<br />
+3.计算e的模逆d，满足(d*e)Mod((p-1)*(q-1))=1。<br />
+则公钥publicKey=(n,e)，私钥privateKey=(n,d)。<br />
+即公钥和私钥是两个大整数组成，其中n是一样的。<br /><br />
+{{publicKey}}
+<br />
+{{privateKey}}
+{% endblock content %}

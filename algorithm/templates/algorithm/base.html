@@ -1,9 +1,11 @@
 <p>
   <a href="{% url 'centres:centres' %}">主页君</a> -
-  <a href="{% url 'yi:yis' %}">易占</a> -
-  <a href="{% url 'yi:yilins' %}">易林占</a> -
+  <a href="{% url 'algorithm:algorithm' %}">算法君</a> -
+  <a href="{% url 'algorithm:blackholenumbers' %}">寻找黑洞数</a> -
+<!--  <a href="{% url 'yi:yilins' %}">易林占</a> -
   <a href="{% url 'ksitiscry:ksitiscry' %}">地藏占察</a> -
   <a href="{% url 'ksitiscry:avalokiscry' %}">观音签</a> -
+-->
   <a href="{% url 'try:try' %}">试一试</a> -
   {% if user.is_authenticated %}
     您本次登录的化名为：{{ user.username }}^-^

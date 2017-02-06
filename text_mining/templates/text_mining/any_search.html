@@ -3,12 +3,12 @@
 
 {% block content %}
 <p>任意查询^-^</p>
-<form enctype="multipart/form-data" action="any_search_fuwu" method="post">
+<form enctype='multipart/form-data' action='any_search_service' method='post'>
    {% csrf_token %}
-   <input type="file" name="myfile" /><br/>
+   <input type='file' name='myfile' /><br/>
    查询内容 <input type='text' name='filename' />
    <br/>   
-   <input type="submit" value="任意查询" />  
+   <input type='submit' value='任意查询' />  
 </form>
 {{what}}
 {% endblock content %}
