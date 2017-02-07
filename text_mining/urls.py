@@ -23,6 +23,6 @@ urlpatterns = [
 	url(r'^name_degrees', views.name_degrees, name='name_degrees'),
 	
 	# 任意查询
-	url(r'^any_search', views.any_search, name='any_search'),
-	url(r'^any_search_service', views.any_search_service, name='any_search_service')
+	url(r'^anysearch', views.anysearch, name='anysearch'),
+	url(r'^searchservice', views.searchservice, name='searchservice')
 ]

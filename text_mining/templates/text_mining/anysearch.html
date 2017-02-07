@@ -1,0 +1,13 @@
+<h2>任意查询</h2>
+{% extends "text_mining/base.html" %}
+
+{% block content %}
+<p>任意查询^-^</p>
+<form enctype='multipart/form-data' action='searchservice' method='POST'>
+   {% csrf_token %}
+   <input type='file' name='upfile' /><br/>
+   <input type='text' name='content' value='唐僧,悟空,八戒,悟净' />
+   <input type='submit' value='任意查询' />  
+</form>
+{{title}}<br/>{{what}}
+{% endblock content %}

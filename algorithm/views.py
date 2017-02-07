@@ -17,8 +17,6 @@ def findblackholenumbers(request):
 	"""寻找黑洞数"""
 	if request.method == 'POST':
 		n = int(request.POST['figures'])
-		#n = int(n)
-		print(n)
 	start = 10**(n-1)
 	end = 10**n
 	#依次测试每个数

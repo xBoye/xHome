@@ -1,0 +1,9 @@
+Python语法
+
+。if结构
+if c1:
+elif c2:
+elif c3:
+else:
+
+random.randint()的函数原型为：random.randint(a, b)，用于生成一个指定范围内的整数。其中参数a是下限，参数b是上限，生成的随机数n: a <= n <= b
